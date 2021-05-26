@@ -1,4 +1,4 @@
-## Chapter 1: Refactoring: A First Example
+## Playing around with `git diff`
 
 `git diff 43d0aa58e1fe0394a82e4911cd64a751a74bb299 4c31f1d6efcd6440e7c600e1629dd263586b2b25` - diff of 2 commits
 
@@ -25,4 +25,6 @@
 ```
 
 **^ could use this to work through the examples**
+
+## Chapter 1: Refactoring: A First Example
 
