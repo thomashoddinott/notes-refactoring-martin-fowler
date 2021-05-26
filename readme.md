@@ -24,5 +24,5 @@
  doSomeMath(2, 3)
 ```
 
-
+**^ could use this to work through the examples**
 
