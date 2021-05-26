@@ -1,5 +1,6 @@
 function doSomeMath(a, b) {
-    const c = a * b
-    console.log(`product ${a} x ${b} = ${c}`)
+    const c = a / b
+    const d = 1 // unused
+    console.log(`quotient ${a} / ${b} = ${c}`)
 }
 doSomeMath(2, 3)
