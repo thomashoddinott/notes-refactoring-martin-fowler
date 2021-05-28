@@ -44,8 +44,4 @@ function statement(invoice, plays) {
     return result;
 }
 
-const plays = require('./data/plays.json')
-const invoices = require('./data/invoices.json')
-
-const invoice = invoices[0]
-console.log(statement(invoice, plays))
+module.exports = statement
