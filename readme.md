@@ -1,4 +1,4 @@
-do a `npm install` to run the tests with Jest - `npm test`
+do a `npm install` to run the tests with Jest - `npm test` / `npm test -- --watch` 
 
 https://memberservices.informit.com/my_account/index.aspx - access to the web edition
 
