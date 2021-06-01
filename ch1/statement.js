@@ -39,20 +39,23 @@ function usd(aNumber) {
     }).format(aNumber/100);
 }
 
+function totalVolumeCredits(invoice, plays) {
+  let volumeCredits = 0;
+  for (let perf of invoice.performances) {
+    volumeCredits += volumeCreditsFor(perf, plays)
+  }
+  return volumeCredits;
+}
+
 function statement(invoice, plays) {
   let totalAmount = 0;
   let result = `Statement for ${invoice.customer}\n`;
-
   for (let perf of invoice.performances) {
     // print line for this order
     result += `  ${playFor(perf, plays).name}: ${usd(amountFor(perf, plays))} (${perf.audience} seats)\n`;
     totalAmount += amountFor(perf, plays);
   }
-  let volumeCredits = 0;
-  for (let perf of invoice.performances) {
-    volumeCredits += volumeCreditsFor(perf, plays)
-  }
-
+  let volumeCredits = totalVolumeCredits(invoice, plays)
   result += `Amount owed is ${usd(totalAmount)}\n`;
   result += `You earned ${volumeCredits} credits\n`;
   return result;
