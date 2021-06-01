@@ -40,19 +40,19 @@ function usd(aNumber) {
 }
 
 function totalVolumeCredits(invoice, plays) {
-  let volumeCredits = 0;
+  let result = 0;
   for (let perf of invoice.performances) {
-    volumeCredits += volumeCreditsFor(perf, plays)
+    result += volumeCreditsFor(perf, plays)
   }
-  return volumeCredits;
+  return result;
 }
 
 function totalAmount(invoice, plays) {
-  let totalAmount = 0;
+  let result = 0;
   for (let perf of invoice.performances) {
-    totalAmount += amountFor(perf, plays)
+    result += amountFor(perf, plays)
   }
-  return totalAmount
+  return result
 }
 
 function statement(invoice, plays) {
