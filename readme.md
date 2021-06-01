@@ -1,4 +1,6 @@
-do a `npm install` to run the tests with Jest - `npm test` / `npm test -- --watch` 
+do a `npm install` to run the tests with Jest - `npm test` 
+
+`npm test -- --watch` to run tests on save - this is handy for refactoring.
 
 https://memberservices.informit.com/my_account/index.aspx - access to the web edition
 
