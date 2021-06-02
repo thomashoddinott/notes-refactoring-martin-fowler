@@ -1,4 +1,8 @@
 function statement(invoice, plays) {
+  return renderPlainText(invoice, plays)
+}
+
+function renderPlainText(invoice, plays) {
   let result = `Statement for ${invoice.customer}\n`;
   for (let perf of invoice.performances) {
     result += `  ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
@@ -14,7 +18,6 @@ function statement(invoice, plays) {
     }
     return result
   }
-
   function totalVolumeCredits() {
     let result = 0;
     for (let perf of invoice.performances) {
@@ -22,7 +25,6 @@ function statement(invoice, plays) {
     }
     return result;
   }
-
   function usd(aNumber) {
     return new Intl.NumberFormat("en-US",
       {
@@ -30,18 +32,15 @@ function statement(invoice, plays) {
         minimumFractionDigits: 2
       }).format(aNumber / 100);
   }
-
   function volumeCreditsFor(aPerformance) {
     let result = 0;
     result += Math.max(aPerformance.audience - 30, 0);
     if ("comedy" === playFor(aPerformance).type) result += Math.floor(aPerformance.audience / 5);
     return result;
   }
-
   function playFor(aPerformance) {
     return plays[aPerformance.playID];
   }
-
   function amountFor(aPerformance) {
     let result = 0;
     switch (playFor(aPerformance).type) {
@@ -63,7 +62,8 @@ function statement(invoice, plays) {
     }
     return result;
   }
-
 }
+
+
 
 module.exports = statement
