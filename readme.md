@@ -2,6 +2,8 @@ do a `npm install` to run the tests with Jest - `npm test`
 
 `npm test -- --watch` to run tests on save - this is handy for refactoring (compile-test-commit).
 
+a useful git command `git commit -am "..."` === `git add .` + `git commit -m "..."`
+
 https://memberservices.informit.com/my_account/index.aspx - access to the web edition
 
 ## Foreword & Preface
