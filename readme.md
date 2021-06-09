@@ -44,6 +44,42 @@ Always leave the code base healthier than when you found it. It will never be pe
 
 Read the code, gain some insight, and use refactoring to move that insight from your head back into the code.
 
+## Chapter 2: Principles in Refactoring
+
+**Refactoring** (noun): a change made to the internal structure of software to make it easier to understand and cheaper to modify without changing its observable behaviour.
+
+Refactoring is all about applying small behaviour-preserving steps and making a big change b stringing togethre a sequence of these behaviour-preserving steps.
+
+**The two hats**: adding functionality, and refactoring. As we develop software, we find ourselvses swaping hats frequently.
+
+#### Why Refactor?
+
+- Improves the design of software - Hastily written, poorly designed code will get out the door fast, but its functionality will not scale with time.
+
+- Makes software easier to understand
+
+- Finds bugs - "I'm not a great programmer; I'm just a good programmer with great habits." 
+
+- Write programs faster - as a consequence of the above!
+
+#### When Refactor? 
+
+**The Rule of Three** - The first time, you just do it. The second time you do something similar, you wince at the duplication, but duplicate anyway. The third time, you refactor.
+
+**Preparatory Refactoring** - Before you need to add a new feature. Often the best way to understand an unfamiliar piece of code you've been tasked on working on (assuming it needs refactoring!).
+
+p51
+
+
+
+
+
+
+
+
+
+
+
 
 
 
