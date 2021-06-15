@@ -143,9 +143,9 @@ These three work nicely together: **self-testing code, continuous integration, r
 
 ## Chapter 3: Bad Smells in Code
 
+(see full list of code smells in the book)
 
-
-For more detail: https://memberservices.informit.com/my_account/webedition/9780135425664/html/smells.html
+## Chapter 4: Building Tests
 
 
 
