@@ -11,4 +11,9 @@ describe('province', () => {
     test('profit', () => {
         expect(asia.profit).toBe(230);
     });
+    test('change production', () => {
+        asia.producers[0].production = 20;
+        expect(asia.shortfall).toBe(-6);
+        expect(asia.profit).toBe(292);
+    })
   });
