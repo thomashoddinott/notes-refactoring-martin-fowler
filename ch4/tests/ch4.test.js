@@ -52,15 +52,15 @@ describe('no producers', () => {
     })
 })
 
-describe('string for producers', () => {
-    test('', () => {
-        const data = {
-            name: "String producers",
-            producers: "",
-            demand: 30,
-            price: 20
-        };
-        const prov = new Province(data);
-        expect(prov.shortfall).toBe(0);
-    })
-})
+// describe('string for producers', () => {
+//     test('', () => {
+//         const data = {
+//             name: "String producers",
+//             producers: "",
+//             demand: 30,
+//             price: 20
+//         };
+//         const prov = new Province(data);
+//         expect(prov.shortfall).toBe(0);
+//     })
+// })
