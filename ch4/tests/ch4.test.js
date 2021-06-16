@@ -28,8 +28,8 @@ describe('province', () => {
     })
     test('empty string demand', () => {
         asia.demand = "";
-        expect(asia.shortfall).toBeNaN()
-        expect(asia.profit).toBeNaN()
+        expect(asia.shortfall).toBeNaN();
+        expect(asia.profit).toBeNaN();
     })
 });
 
@@ -49,5 +49,18 @@ describe('no producers', () => {
     })
     test('profit', () => {
         expect(noProducers.profit).toBe(0);
+    })
+})
+
+describe('string for producers', () => {
+    test('', () => {
+        const data = {
+            name: "String producers",
+            producers: "",
+            demand: 30,
+            price: 20
+        };
+        const prov = new Province(data);
+        expect(prov.shortfall).toBe(0);
     })
 })
