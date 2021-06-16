@@ -147,6 +147,12 @@ These three work nicely together: **self-testing code, continuous integration, r
 
 ## Chapter 4: Building Tests
 
+Use a testing library with a 'watch' mode. This runs tests on parts of the code based that change on save, so you can tab back and forth from your code to passing/failing tests. 
+
+`npm test -- --watch`
+
+### [ch4](./ch4)
+
 
 
 
