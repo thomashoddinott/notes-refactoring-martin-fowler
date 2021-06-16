@@ -26,6 +26,11 @@ describe('province', () => {
         expect(asia.shortfall).toBe(-26);
         expect(asia.profit).toBe(-10);
     })
+    test('empty string demand', () => {
+        asia.demand = "";
+        expect(asia.shortfall).toBeNaN()
+        expect(asia.profit).toBeNaN()
+    })
 });
 
 describe('no producers', () => {
