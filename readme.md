@@ -1,8 +1,8 @@
-do a `npm install` to run the tests with Jest - `npm test` 
+To run the tests yourself do an `npm install`, then run `npm test` with the Jest framework.
 
-`npm test -- --watch` to run tests on save. Leave it running in a terminal. This is handy for refactoring (compile-test-commit).  
+`npm test -- --watch` to run tests on save. Leave it running in a terminal. This is handy when refactoring (compile-test-commit).  
 
-https://memberservices.informit.com/my_account/index.aspx - access to the web edition
+https://memberservices.informit.com/my_account/index.aspx - access to the web edition. 
 
 ## Foreword & Preface
 
@@ -149,9 +149,106 @@ These three work nicely together: **self-testing code, continuous integration, r
 
 Use a testing library with a 'watch' mode. This runs tests on parts of the code based that change on save, so you can tab back and forth from your code to passing/failing tests. 
 
-`npm test -- --watch`
+e.g. Run `npm test -- --watch` in a terminal with your IDE/editor in another window and tab back and forth on each refactoring (commit/save).
 
-### [ch4](./ch4)
+### code: [ch4](./ch4)
+
+### Notes
+
+Even without refactoring, writing good tests increases my effectiveness as a programmer. This was a surprise for me and is counterintuitive for most programmers—so it's worth explaining why.
+
+Programmers spend only a fraction of their time writing code. Some time is spent figuring out what ought to be going on, some time is spent designing, **but most time is spent debugging**.
+
+Fixing the bug is usually pretty quick, but finding it is a nightmare.
+
+Your code should be [self-testing](https://martinfowler.com/bliki/SelfTestingCode.html):
+
+> You have self-testing code when you can run a series of automated  tests against the code base and be confident that, should the tests  pass, your code is free of any substantial defects. One way I think  of it is that as well as building your software system, you  simultaneously build a bug detector that's able to detect any faults  inside the system. Should anyone in the team accidentally introduce  a bug, the detector goes off. By running the test suite frequently,  at least several times a day, you're able to detect such bugs soon  after they are introduced, so you can just look in the recent  changes, which makes it *much* easier to find them. No  programming episode is complete without working code and the tests  to keep it working. Our attitude is to assume that any non-trivial  code without tests is broken.
+
+**A suite of tests is a powerful bug detector that decapitates the time it takes to find bugs.** 
+
+We can also use TDD: First, write a (failing) test. Then write the code to make that test work. And then refactor to ensure the result is as clean as possible.
+
+**What tests to write?**
+
+The style I follow is to look at all the things the class should do and test each one of them for any conditions that might cause the class to fail. This is not the same as testing every public method, which is what some programmers advocate. Testing should be risk-driven; remember, I'm trying to find bugs, now or in the future. Therefore I don't need test accessors that just read and write a field: They are so simple that I'm not likely to find a bug there.
+
+It's better to write and run incomplete tests than not to run complete tests.
+
+**Fixtures**
+
+Don't share global fixtures. It's asking for trouble (data mutation, interacting tests, ... ).
+
+```js
+describe('province', () => {
+	const asia = new Province(sampleProvinceData()) // no!
+    test('shortfall', () => {
+        expect(asia.shortfall).toBe(5);
+    });
+    test('profit', () => {
+        expect(asia.profit).toBe(230);
+    });
+ 	// ...
+});
+```
+
+Use `beforeEach` instead:
+
+```js
+describe('province', () => {
+    let asia;
+    beforeEach(() => { 
+        asia = new Province(sampleProvinceData())
+    })
+    test('shortfall', () => {
+        expect(asia.shortfall).toBe(5);
+    });
+    test('profit', () => {
+        expect(asia.profit).toBe(230);
+    });
+ 	// ...
+});
+```
+
+---
+
+A common pattern is to take the initial standard fixture that's **set up** by the `beforeEach` black, **exercise** that fixture for the test, and **verify** the fixture has done what I think it should have done. 
+
+This is described variously as: *setup-exercise-verify*, *given-when-then*, or *arrange-act-assert*.
+
+Implicit in this pattern is the final step: **teardown**, which removes the fixture between tests so that different tests don't interact with each other.
+
+^ Yes, I've seen this more explicitly in tests which target a DB :floppy_disk:. 
+
+**Think of the boundary conditions under which things might go wrong and concentrate your tests there.**
+
+Notice how I'm playing the part of enemy to my code. I'm actively thinking about how I can break it. :smiling_imp:
+
+If I'm writing tests like this [tests which throw *runtime* errors - see page 98 for example] I would probably discard this test. **Refactoring should preserve the observable behaviour**; an error like this is outside the bounds of observable, so I need not be concerned if my refactoring changes the code's response to this condition. 
+
+**When to stop?**
+
+Don't let the fear that testing can't catch all bugs stop you from writing tests that catch most bugs.
+
+There's a law of diminishing returns in testing. Concentrate on where the risk is.
+
+Your tests will not find every bug, but as you refactor, you will understand the program better and thus find more bugs. Although I always start refactoring with a *test suite*, I invariably add to it as I go along.
+
+**Final thoughts**
+
+Testing is now increasingly a first-class concern of any decent software developer. Architectures often are, rightly, judged on their testability.
+
+We've written unit tests, but there are [many other types](https://www.atlassian.com/continuous-delivery/software-testing/types-of-software-testing).
+
+Like most of programming, testing is iterative. Unless you're very talented, or very lucky, you won't get your tests write first time.
+
+**When you get a bug report, start by writing a unit test that exposes the bug.**
+
+**The best measure for a good enough test suite is subjective.** How confident are you that if someone introduces a defect into the code, some test will fail? If I can refactor my code and be pretty sure that I've not introduced a bug because my tests *come back green*—then I can be happy that I have **good enough** tests.
+
+It is possible to write too many tests. One sign of that is when I spend more time changing the tests than the code under test—and I feel the tests are slowing me down. 
+
+Over-testing does happen, but it's rare compared to under-testing.
 
 
 
