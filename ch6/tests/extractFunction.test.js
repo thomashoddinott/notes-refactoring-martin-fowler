@@ -1,7 +1,7 @@
-const printOwingOriginal = require('../extractFunctionOriginal')
-const printOwingNoVariablesOutOfScope = require('../extractFunctionNoVariablesOutOfScope')
-const printOwingUsingLocalVariables = require('../extractFunctionUsingLocalVariables')
-const printOwingReassigningLocalVariable = require('../extractFunctionReassigningLocalVariable')
+const printOwingOriginal = require('../extractFunction/Original')
+const printOwingNoVariablesOutOfScope = require('../extractFunction/NoVariablesOutOfScope')
+const printOwingUsingLocalVariables = require('../extractFunction/UsingLocalVariables')
+const printOwingReassigningLocalVariable = require('../extractFunction/ReassigningLocalVariable')
 
 const expected =
 `***********************
