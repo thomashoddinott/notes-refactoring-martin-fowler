@@ -1,6 +1,7 @@
 const printOwingOriginal = require('../extractFunctionOriginal')
 const printOwingNoVariablesOutOfScope = require('../extractFunctionNoVariablesOutOfScope')
 const printOwingUsingLocalVariables = require('../extractFunctionUsingLocalVariables')
+const printOwingReassigningLocalVariable = require('../extractFunctionReassigningLocalVariable')
 
 const expected =
 `***********************
@@ -28,6 +29,9 @@ describe('extractFunction', () => {
     });
     test('refactored - Using Local Varables', () => {
         expect(printOwingUsingLocalVariables(invoice)).toBe(expected)
+    });
+    test('refactored - Reassigning a Local Variable', () => {
+        expect(printOwingReassigningLocalVariable(invoice)).toBe(expected)
     });
 })
 
