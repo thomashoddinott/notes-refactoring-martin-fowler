@@ -1,5 +1,5 @@
-const reportLinesOriginal = require('../inlineFunction/original')
-const reportLinesRefactored = require('../inlineFunction/refactored')
+const reportLinesOriginal = require('./original')
+const reportLinesRefactored = require('./refactored')
 
 const expected = [["name", "Joe Bloggs"], ["location", "New Town"]]
 
