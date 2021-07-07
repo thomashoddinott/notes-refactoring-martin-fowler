@@ -29,7 +29,7 @@ class Reading {
     }
 
     get taxableCharge() {
-        return Math.max(0, this.baseCharge - taxThreshold(reading.year));
+        return Math.max(0, this.baseCharge - taxThreshold() * this.quantity)
     }
 }
 
