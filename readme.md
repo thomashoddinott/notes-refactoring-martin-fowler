@@ -4,6 +4,12 @@ To run the tests yourself do an `npm install`, then run `npm test` with the Jest
 
 https://memberservices.informit.com/my_account/index.aspx - access to the web edition. 
 
+##### Other handy resources I found: 
+
+- https://github.com/wickedwukong/martin-fowler-refactoring-2nd — coded examples
+- https://github.com/korkorna/refactoring-2nd — coded examples
+- https://gist.github.com/cs-cordero/3799f26699bdecdb286fd719f08122af — concise explanations of the refactorings
+
 ## Foreword & Preface
 
 Refactoring is not a once-a-year ritual.
