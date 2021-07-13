@@ -1,7 +1,7 @@
 // https://github.com/wickedwukong/martin-fowler-refactoring-2nd/blob/master/src/chp7/ReplacePrimitiveWithObject.js
 
 class Priority {
-    toString() {return this._value;}
+    toString() { return this._value; }
 
     constructor(value) {
         if (Priority.legalValues().includes(value))
@@ -9,13 +9,13 @@ class Priority {
         else
             throw new Error(`<${value}> is invalid for Priority`);
     }
-    toString() {return this._value;}
-    get _index() {return Priority.legalValues().findIndex(s => s === this._value);}
-    static legalValues() {return ['low', 'normal', 'high', 'rush'];}
+    toString() { return this._value; }
+    get _index() { return Priority.legalValues().findIndex(s => s === this._value); }
+    static legalValues() { return ['low', 'normal', 'high', 'rush']; }
 
-    equals(other) {return this._index === other._index;}
-    higherThan(other) {return this._index > other._index;}
-    lowerThan(other) {return this._index < other._index;}
+    equals(other) { return this._index === other._index; }
+    higherThan(other) { return this._index > other._index; }
+    lowerThan(other) { return this._index < other._index; }
 }
 
 class Order {
@@ -36,7 +36,7 @@ class Order {
     }
 }
 
-const orders = [new Order({priority: "normal"}), new Order({priority: "high"}), new Order({priority: "rush"})];
-const highPriorityCount = orders.filter(o => o.priority.higherThan(new Priority("high"))).length;
-
-module.exports = highPriorityCount
+module.exports = {
+    Order: Order,
+    Priority: Priority
+}
