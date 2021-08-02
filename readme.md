@@ -256,7 +256,9 @@ It is possible to write too many tests. One sign of that is when I spend more ti
 
 Over-testing does happen, but it's rare compared to under-testing.
 
+## Chapter 11: Refactoring APIs
 
+**Modules and their functions are the building blocks of our software. APIs are the joints that we use to plug them together.** Making these APIs easy to understand and use is important but also difficult: I need to refactor them as I learn how to improve them.
 
 
 
